@@ -10,8 +10,8 @@ const ExpensePopup = () => {
           <button className="close-btn">✖</button>
         </div>
 
-        <p>Are you sure you want to reset your Expense diary? This will delete all logs and data prmanently, and this action cannot be undone </p>
-        <span className="small-text">Note: Resetting will erase all your budget settings, expense logs,and saved data.Proceed with caution</span>
+        <p className="text">Are you sure you want to reset your Expense diary? This will delete all logs and data prmanently, and this action cannot be undone </p>
+        <span className="small-text">Note: Resetting will erase all your budget settings, expense logs,and saved data.Proceed with caution</span>  
         <div className="buttons">
           <button className="cancel">Cancel</button>
           <button className="done">Done</button>
