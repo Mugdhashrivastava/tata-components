@@ -40,9 +40,10 @@
   }
   
   
-  h3 {
+  .heading {
     font-size: 1.2rem;
     margin-bottom: 1rem;
+    font-family: Arial, sans-serif;
   }
   
   input {

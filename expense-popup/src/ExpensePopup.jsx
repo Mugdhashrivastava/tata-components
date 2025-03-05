@@ -6,7 +6,7 @@ const ExpensePopup = () => {
     <div className="overlay">
       <div className="popup">
       <div className="popup-header">
-          <h3>Reset Expense Diary</h3>
+          <h3 className="heading">Reset Expense Diary</h3>
           <button className="close-btn">✖</button>
         </div>
 

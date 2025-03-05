@@ -11,7 +11,7 @@ const BudgetPopup = () => {
       <div className="popup">
 
       <div className="popup-header">
-      <h3>Edit budget amount</h3>
+      <h3 className="heading">Edit budget amount</h3>
           <button className="close-btn">✖</button>
         </div>
         
