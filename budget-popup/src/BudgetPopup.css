@@ -20,6 +20,25 @@
     
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   }
+
+  .popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: gray;
+  }
+  
+  .close-btn:hover {
+    color: black;
+  }
+  
   
   h3 {
     font-size: 1.2rem;
@@ -41,7 +60,7 @@
     gap: 1rem;
   }
   
-  button {
+  .cancel,.done{
     flex: 1;
     padding: 0.75rem;
     border: none;
