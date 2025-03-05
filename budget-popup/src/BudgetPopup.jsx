@@ -1,8 +1,12 @@
 import React from "react";
 import "./BudgetPopup.css";
+import { useState } from "react";
+
 
 const BudgetPopup = () => {
+  const [inputValue, setInputValue] = useState("₹ 40,00,000");
   return (
+    
     <div className="overlay">
       <div className="popup">
 
@@ -11,7 +15,8 @@ const BudgetPopup = () => {
           <button className="close-btn">✖</button>
         </div>
         
-        <input type="text"  />
+        <input type="text"  value={inputValue}
+      onChange={(e) => setInputValue(e.target.value)} />
         <div className="buttons">
           <button className="cancel">Cancel</button>
           <button className="done">Done</button>
