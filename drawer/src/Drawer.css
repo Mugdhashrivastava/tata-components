@@ -104,4 +104,40 @@
     background: rgb(61, 126, 219);
     color: white;
   }
+
+
+
+  
+
+@media screen and (max-width: 768px) {
+    .drawer {
+      width: 100%;
+      height: 100vh;
+      margin-top:2rem;
+      box-shadow: none; 
+      border-radius: 2rem; 
+
+    }
+  
+    .drawer-header {
+      font-size: 1.2rem;
+    }
+  
+    .toggle-buttons {
+      font-size: 1rem;
+    }
+  
+    input {
+      font-size: 1rem;
+    }
+  
+   
+  
+    .back-btn,
+    .save-btn {
+      width: 100%;
+      font-size: 1rem;
+    }
+  }
+  
   
