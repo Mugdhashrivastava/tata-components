@@ -16,15 +16,19 @@
     opacity: 1;
     visibility: visible;
   }
+
+  label{
+    color: #666666;
+    font-family: sans-serif;
+    font-size:small;
+  }
   
  
   .drawer {
     background: #fff;
-    width: 35%;
+    width: 30%;
     height: 100%;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
     box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.1);
   }
   
@@ -71,7 +75,7 @@
   form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 0.3rem;
   }
   
   input {
@@ -82,21 +86,22 @@
   
   
   .drawer-footer {
-    margin-top: auto;
     display: flex;
-    justify-content: space-between;
     padding-top: 20px;
   }
   
   .back-btn,
   .save-btn {
+    flex:1;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+    margin:10px;
+    border-radius: 0.5rem;
   }
   
   .save-btn {
-    background: blue;
+    background: rgb(61, 126, 219);
     color: white;
   }
   

@@ -27,6 +27,7 @@ const Drawer = ({ isOpen, onClose }) => {
         </div>
 
         <div className="drawer-body">
+          
           <div className="toggle-buttons">
             <button 
               className={selectedType === "Dealer" ? "active" : ""} 
