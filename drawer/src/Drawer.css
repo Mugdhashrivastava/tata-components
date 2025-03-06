@@ -17,7 +17,7 @@
     visibility: visible;
   }
   
-  /* Drawer */
+ 
   .drawer {
     background: #fff;
     width: 35%;
@@ -28,7 +28,7 @@
     box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.1);
   }
   
-  /* Header */
+  
   .drawer-header {
     display: flex;
     justify-content: space-between;
@@ -42,7 +42,7 @@
     cursor: pointer;
   }
   
-  /* Toggle buttons */
+ 
   .toggle-buttons {
     display: flex;
     gap: 10px;
@@ -62,7 +62,7 @@
     color: white;
   }
   
-  /* Form */
+  
   form {
     display: flex;
     flex-direction: column;
@@ -75,7 +75,7 @@
     border-radius: 5px;
   }
   
-  /* Footer */
+  
   .drawer-footer {
     margin-top: auto;
     display: flex;

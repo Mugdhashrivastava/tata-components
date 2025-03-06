@@ -13,7 +13,7 @@ const Drawer = ({ isOpen, onClose }) => {
 
   const [selectedType, setSelectedType] = useState("Dealer");
 
-  // Handle input changes
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
