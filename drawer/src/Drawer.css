@@ -33,6 +33,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: Arial, sans-serif;
   }
   
   .close-btn {
@@ -48,6 +49,7 @@
     padding: 0.5rem;
     background: rgb(236, 242, 251);
     font-size:1rem;
+    margin:0.5rem;
   }
   
   .toggle-buttons button {
