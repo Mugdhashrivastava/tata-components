@@ -6,8 +6,19 @@ const PhotoDrawer = ({ isOpen, onClose }) => {
 
   const handleImageUpload = (event) => {
     const files = Array.from(event.target.files);
-    const imageUrls = files.map((file) => URL.createObjectURL(file));
-    setImages((prevImages) => [...prevImages, ...imageUrls]);
+    const validFiles = files.filter((file) => file.size <= 5 * 1024 * 1024); 
+
+    if (validFiles.length !== files.length) {
+      alert("Some files were not added because they exceed 5MB.");
+    }
+
+    const newImageUrls = validFiles.map((file) => URL.createObjectURL(file));
+
+    setImages((prevImages) => {
+      return [...prevImages, ...newImageUrls].slice(0, 5); 
+    });
+
+    event.target.value = null;
   };
 
   const handleImageDelete = (index) => {
@@ -39,12 +50,12 @@ const PhotoDrawer = ({ isOpen, onClose }) => {
           <div className="upload-content">
             <span className="upload-icon">📷</span>
             Upload photo
-            <p>Supporting items: PNG, JPEG, PDF, or PPT. File size should not exceed 5MB. Maximum upto 5 photos.</p>
+            <p>Supporting items: PNG, JPEG, PDF, or PPT. File size should not exceed 5MB. Maximum up to 5 photos.</p>
           </div>
         </label>
         <div className="drawer-footer">
           <button className="cancel-btn" onClick={onClose}>Cancel</button>
-          <button className="save-btn">Save</button>
+          <button className="save-btn" disabled={images.length === 0}>Save</button>
         </div>
       </div>
     </div>
