@@ -39,7 +39,7 @@ const PhotoDrawer = ({ isOpen, onClose }) => {
           <div className="upload-content">
             <span className="upload-icon">📷</span>
             Upload photo
-            <p>PNG, JPEG, PDF, or PPT. Max size: 5MB, up to 5 photos.</p>
+            <p>Supporting items: PNG, JPEG, PDF, or PPT. File size should not exceed 5MB. Maximum upto 5 photos.</p>
           </div>
         </label>
         <div className="drawer-footer">

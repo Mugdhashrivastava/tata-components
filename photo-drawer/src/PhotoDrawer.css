@@ -94,28 +94,32 @@
     font-size: 24px;
     display: block;
     margin-bottom: 5px;
+    color:#3d7edb;
   }
   
   .drawer-footer {
     display: flex;
-    justify-content: space-between;
     margin-top: auto;
+    margin-bottom: 1rem;
+
   }
-  
-  .cancel-btn, .save-btn {
-    padding: 8px 15px;
-    font-size: 14px;
+  .cancel-btn,
+  .save-btn {
+    flex:1;
+    padding: 10px 20px;
     border: none;
     cursor: pointer;
+    margin:10px;
+    border-radius: 0.5rem;
   }
   
+  .save-btn {
+    background: rgb(61, 126, 219);
+    color: white;
+  }
   .cancel-btn {
     background: white;
     border: 1px solid #ccc;
   }
   
-  .save-btn {
-    background: blue;
-    color: white;
-  }
-  
+ 
