@@ -71,6 +71,9 @@
     border: none;
   }
   
+  .top{
+    color:black;
+   }
   
   form {
     display: flex;
@@ -131,13 +134,20 @@
       font-size: 1rem;
     }
   
-   
+  
   
     .back-btn,
     .save-btn {
       width: 100%;
       font-size: 1rem;
     }
+  }
+
+
+  .error{
+    font-size: small;
+    color: red;
+    margin:0;
   }
   
   
