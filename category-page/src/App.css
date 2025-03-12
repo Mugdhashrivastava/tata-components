@@ -1,0 +1,53 @@
+.transaction-list {
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transaction-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.transaction-card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+  font-size: 24px;
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.details {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.category {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.info {
+  color: gray;
+  font-size: 14px;
+}
+
+.amount {
+  font-weight: bold;
+  font-size: 16px;
+}
