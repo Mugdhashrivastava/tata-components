@@ -1,12 +1,18 @@
 .dashboard {
     display: flex;
-    gap: 30px;
+    gap: 1rem;
     padding: 20px;
   }
   
   .left-section {
     flex: 1;
-    max-width: 300px;
+    max-width: 500px;
+  }
+
+
+  svg {
+    display: block;
+    margin: 0 auto; /* Center the SVG horizontally */
   }
   
   .right-section {

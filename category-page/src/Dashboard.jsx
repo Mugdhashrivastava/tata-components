@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 import "./Dashboard.css";
+import articleImage from "./assets/images/img.jpg";
+
 
 const categoryData = [
   { label: "Interiors", value: 24, amount: "₹7,900", color: "#2A72FF" },
@@ -26,19 +28,19 @@ const articles = [
     title: "From blueprint to budget: understanding the true costs of building...",
     date: "20 Dec 2024",
     time: "5 min",
-    image: "https://via.placeholder.com/80",
+    image: articleImage,
   },
   {
     title: "From blueprint to budget: understanding actual costs of building a home",
     date: "20 Dec 2024",
     time: "5 min",
-    image: "https://via.placeholder.com/80",
+    image: articleImage,
   },
   {
     title: "Understanding actual costs of building a home",
     date: "20 Dec 2024",
     time: "5 min",
-    image: "https://via.placeholder.com/80",
+    image: articleImage,
   },
 ];
 
@@ -108,7 +110,8 @@ const Dashboard = () => {
         <h3>Recommended for you</h3>
         {articles.map((article, index) => (
           <div className="article-card" key={index}>
-            <img src={article.image} alt="article" />
+           <img src={article.image} alt="article" />
+
             <div>
               <p className="article-title">{article.title}</p>
               <p className="article-meta">{article.date} | {article.time}</p>
