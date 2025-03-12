@@ -1,6 +1,6 @@
 .transaction-list {
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -10,6 +10,7 @@
   .transaction-card {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background: #fff;
     border-radius: 10px;
     padding: 15px;
@@ -26,11 +27,15 @@
     background: #f4f4f4;
     padding: 10px;
     border-radius: 50%;
-    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
   }
   
   .details {
-    flex-grow: 1;
+    flex: 2;
   }
   
   .details h3 {
@@ -39,14 +44,15 @@
     font-weight: bold;
   }
   
-  .details p {
-    margin: 5px 0 0;
-    color: gray;
+  .transactions, .percentage, .amount {
     font-size: 14px;
+    color: gray;
+    min-width: 80px;
+    text-align: center;
   }
   
   .amount {
     font-weight: bold;
-    font-size: 16px;
+    color: black;
   }
   

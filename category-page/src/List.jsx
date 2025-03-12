@@ -23,10 +23,11 @@ const List = () => {
         <div className="transaction-card" key={index}>
           <div className="icon">{item.icon}</div>
           <div className="details">
-            <span className="category">{item.category}</span>
-            <span className="info">{item.transactions} • {item.percentage}</span>
+            <h3>{item.category}</h3>
           </div>
-          <div className="amount">{item.amount}</div>
+          <p className="transactions">{item.transactions}</p>
+          <p className="percentage">{item.percentage}</p>
+          <p className="amount">{item.amount}</p>
         </div>
       ))}
     </div>
