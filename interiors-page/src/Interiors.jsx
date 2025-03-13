@@ -1,7 +1,7 @@
 import React from "react";
 import "./Interiors.css";
-import { FaPlus, FaWallet, FaStar } from "react-icons/fa"; // Added FaWallet for total expenses, FaStar for rating
-import { FaRegLightbulb, FaBed, FaCouch, FaHome } from "react-icons/fa"; // Icons for categories
+import { FaPlus, FaWallet, FaStar } from "react-icons/fa";
+import { FaRegLightbulb, FaBed, FaCouch, FaHome } from "react-icons/fa";
 
 const Interiors = () => {
   const expenses = [
@@ -84,7 +84,7 @@ const Interiors = () => {
                 <div className="material-item" key={index}>
                   <div className="material-icon">{material.icon}</div>
                   <p className="material-name">{material.name}</p>
-                  <p className "material-desc">{material.desc}</p>
+                  <p className="material-desc">{material.desc}</p>
                 </div>
               ))}
             </div>
@@ -103,7 +103,8 @@ const Interiors = () => {
                   <p className="provider-name">{provider.name}</p>
                   <p className="provider-location">🏠 {provider.location}</p>
                   <div className="provider-rating">
-                    <FaStar className="star-icon" /> {provider.rating} <span className="saved-by">Saved by {provider.savedBy}</span>
+                    <FaStar className="star-icon" /> {provider.rating}{" "}
+                    <span className="saved-by">Saved by {provider.savedBy}</span>
                   </div>
                   <button className="send-enquiry-btn">Send enquiry</button>
                 </div>

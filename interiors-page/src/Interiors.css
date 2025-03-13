@@ -1,70 +1,90 @@
 /* Main Container */
 .interiors-container {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
+    flex-direction: column;
     padding: 20px;
     background: #f8f9fa;
+    /* Removed min-height: 100vh to avoid unnecessary stretching */
   }
   
-  /* Left Section (Title, Total Expenses, Expenses List) */
-  .left-section {
-    width: 60%;
-    display: flex;
-    flex-direction: column; /* Ensures total expenses is on top */
-  }
-  
-  /* Title */
-  .interiors-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 15px;
-  }
-  
-  /* Total Expenses Section */
-  .total-expenses {
+  /* Header */
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px; /* Creates space before the expenses list */
+    margin-bottom: 20px;
   }
   
-  .total-expenses p {
-    margin: 0;
-    color: gray;
+  .interiors-title {
+    font-size: 24px;
+    font-weight: bold;
   }
   
-  .total-expenses h3 {
-    margin: 0;
-    font-size: 22px;
-  }
-  
-  /* Add Expense Button */
   .add-expense-btn {
     background: #2A72FF;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
     display: flex;
     align-items: center;
+    font-size: 14px;
   }
   
   .add-expense-btn svg {
     margin-right: 5px;
   }
   
+  /* Main Content */
+  .main-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px; /* Increased gap for better spacing */
+  }
+  
+  /* Left Section */
+  .left-section {
+    flex: 2; /* Takes up more space (about 65-70%) */
+  }
+  
+  /* Total Expenses Section */
+  .total-expenses {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .total-expenses-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .total-expenses-icon {
+    color: #2A72FF;
+    font-size: 24px;
+  }
+  
+  .total-expenses p {
+    margin: 0;
+    color: gray;
+    font-size: 14px;
+  }
+  
+  .total-expenses h3 {
+    margin: 0;
+    font-size: 22px;
+    color: #333;
+  }
+  
   /* Expenses List */
   .expenses-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px; /* Increased gap between expense items */
   }
   
   .expense-item {
@@ -80,20 +100,26 @@
   .expense-info {
     display: flex;
     align-items: center;
+    gap: 15px; /* Increased gap for better spacing */
   }
   
   .expense-icon {
-    font-size: 18px;
-    margin-right: 10px;
+    font-size: 20px; /* Slightly larger icon */
+    color: #2A72FF;
   }
   
   .expense-name {
     font-weight: bold;
+    font-size: 16px; /* Slightly larger font */
   }
   
   .expense-category {
     font-size: 12px;
     color: gray;
+  }
+  
+  .expense-details {
+    text-align: right;
   }
   
   .expense-date {
@@ -103,12 +129,12 @@
   
   .expense-amount {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 16px; /* Slightly larger font */
   }
   
   /* Right Sidebar */
   .right-sidebar {
-    width: 35%;
+    flex: 1; /* Takes up less space (about 30-35%) */
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -117,23 +143,37 @@
   /* Materials Section */
   .materials-section {
     background: white;
-    padding: 15px;
+    padding: 20px; /* Increased padding */
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .materials-section h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
   }
   
   .materials-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 20px; /* Increased gap for better spacing */
+    justify-content: space-between; /* Ensures even spacing */
   }
   
   .material-item {
     text-align: center;
-    width: 80px;
+    width: calc(33.33% - 15px); /* Three items per row with gap */
+  }
+  
+  .material-icon {
+    font-size: 30px; /* Larger icon */
+    margin-bottom: 8px;
   }
   
   .material-name {
     font-weight: bold;
+    font-size: 14px;
   }
   
   .material-desc {
@@ -144,28 +184,41 @@
   /* Service Providers */
   .service-providers {
     background: white;
-    padding: 15px;
+    padding: 20px; /* Increased padding */
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-providers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .service-providers h3 {
+    font-size: 16px;
+    font-weight: bold;
   }
   
   .view-all {
-    float: right;
     font-size: 12px;
     color: #2A72FF;
+    text-decoration: none;
   }
   
   .provider-card {
     display: flex;
     align-items: center;
     background: #f8f9fa;
-    padding: 10px;
-    margin-top: 10px;
+    padding: 15px; /* Increased padding */
+    margin-bottom: 15px; /* Increased margin */
     border-radius: 8px;
   }
   
   .provider-image {
-    font-size: 30px;
-    margin-right: 10px;
+    font-size: 50px; /* Larger image/icon */
+    margin-right: 15px;
   }
   
   .provider-details {
@@ -174,6 +227,7 @@
   
   .provider-name {
     font-weight: bold;
+    font-size: 16px; /* Slightly larger font */
   }
   
   .provider-location {
@@ -182,31 +236,53 @@
   }
   
   .provider-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
     font-size: 12px;
-    color: green;
+    color: #28a745;
     margin-top: 5px;
+  }
+  
+  .star-icon {
+    color: #28a745;
+  }
+  
+  .saved-by {
+    color: gray;
+    font-size: 12px;
   }
   
   .send-enquiry-btn {
     background: #2A72FF;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 8px 12px; /* Slightly larger button */
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 5px;
+    font-size: 12px;
   }
   
   /* Responsive Design */
   @media (max-width: 1024px) {
-    .interiors-container {
+    .main-content {
       flex-direction: column;
-      align-items: center;
+      gap: 20px;
     }
-    
-    .left-section, .right-sidebar {
+  
+    .left-section,
+    .right-sidebar {
+      flex: 1;
       width: 100%;
     }
-  }
-
   
+    .material-item {
+      width: calc(50% - 10px); /* Two items per row on smaller screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .material-item {
+      width: 100%; /* One item per row on very small screens */
+    }
+  }
