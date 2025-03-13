@@ -55,8 +55,8 @@ input, select {
 }
 
 .button-group .selected {
-  background: #007bff;
-  color: white;
+  background: #ecf2fb;
+  color:#007bff;
   border-color: #007bff;
 }
 
@@ -132,3 +132,4 @@ input, select {
   border-radius: 5px;
   cursor: pointer;
 }
+

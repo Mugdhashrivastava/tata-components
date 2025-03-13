@@ -1,16 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useState } from "react";
+import ExpenseForm from "./ExpenseForm";
 
-import ExpenseForm from './ExpenseForm'
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [showForm, setShowForm] = useState(false);
 
   return (
-    <>
-<ExpenseForm />
-    </>
-  )
-}
+    <div>
+      <button onClick={() => setShowForm(true)}>Open Expense Form</button>
 
-export default App
+      {showForm && (
+        <div className="modal">
+          <ExpenseForm onClose={() => setShowForm(false)} />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default App;

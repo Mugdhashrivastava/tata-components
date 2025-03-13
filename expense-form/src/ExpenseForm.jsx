@@ -3,7 +3,7 @@ import "./ExpenseForm.css";
 import { format } from "date-fns";
 import { CalendarIcon, Upload } from "lucide-react";
 
-const ExpenseForm = () => {
+const ExpenseForm = ({ onClose }) => {
   const [expenseName, setExpenseName] = useState("Light Bulbs");
   const [amount, setAmount] = useState("₹7,800");
   const [category, setCategory] = useState("Electric work");
@@ -85,7 +85,7 @@ const ExpenseForm = () => {
       </div>
 
       <div className="action-buttons">
-        <button className="cancel" onClick={resetForm}>Cancel</button>
+        <button className="cancel" onClick={onClose}>Cancel</button>
         <button className="save">Save</button>
       </div>
     </div>
