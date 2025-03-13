@@ -131,11 +131,9 @@ const TimelineChart = () => {
                   <h3 className="year-title">{dataYear}</h3>
                   {monthlyData[dataYear].map((monthData, index) => (
                     <div key={index} className="month-item">
-                      <div className="month-details">
+                      <div className="month-content">
                         <span className="month-name">{monthData.month}</span>
                         <span className="month-transactions">{monthData.transactions}</span>
-                      </div>
-                      <div className="month-stats">
                         <span className="month-percentage">{monthData.percentage}</span>
                         <span className="month-amount">{monthData.amount}</span>
                       </div>

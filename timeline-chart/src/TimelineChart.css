@@ -109,29 +109,22 @@
 
 .year-title {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
   color: #003087;
   text-align: left;
 }
 
 .month-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 10px 0;
   border-bottom: 1px solid #f0f2f5;
 }
 
-.month-details {
+.month-content {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex: 1;
-}
-
-.month-name-transactions {
-  display: flex;
-  flex-direction: column;
 }
 
 .month-name {
@@ -142,13 +135,6 @@
 .month-transactions {
   font-size: 12px;
   color: #666;
-}
-
-.month-stats {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-width: 100px;
 }
 
 .month-percentage {
