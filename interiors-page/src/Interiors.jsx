@@ -31,7 +31,13 @@ const Interiors = () => {
 
   return (
     <div className="interiors-container">
-      {/* Header */}
+    
+      {/* Main Content */}
+      <div className="main-content">
+        {/* Left Section (Total Expenses, Expenses List) */}
+        <div className="left-section">
+          {/* Total Expenses */}
+            {/* Header */}
       <div className="header">
         <h2 className="interiors-title">Interiors</h2>
         <button className="add-expense-btn">
@@ -39,18 +45,14 @@ const Interiors = () => {
         </button>
       </div>
 
-      {/* Main Content */}
-      <div className="main-content">
-        {/* Left Section (Total Expenses, Expenses List) */}
-        <div className="left-section">
-          {/* Total Expenses */}
           <div className="total-expenses">
             <div className="total-expenses-info">
-              <FaWallet className="total-expenses-icon" />
+            
               <div>
                 <p>Total expenses</p>
                 <h3>₹20,00,000</h3>
               </div>
+              <FaCouch className="total-expenses-icon" />
             </div>
           </div>
 
@@ -74,7 +76,7 @@ const Interiors = () => {
         <div className="right-sidebar">
           {/* Materials Section */}
           <div className="materials-section">
-            <h3>Materials you may need</h3>
+            <h3 className="materials-title">Materials you may need</h3>
             <div className="materials-list">
               {materials.map((material, index) => (
                 <div className="material-item" key={index}>

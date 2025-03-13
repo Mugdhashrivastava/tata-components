@@ -12,11 +12,13 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+   
   }
   
   .interiors-title {
     font-size: 24px;
     font-weight: bold;
+    font-family: sans-serif;
   }
   
   .add-expense-btn {
@@ -60,6 +62,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    justify-content: space-between;
   }
   
   .total-expenses-icon {
@@ -124,7 +127,7 @@
   .expense-amount {
     font-size: 14px;
     color: gray;
-    min-width: 100px; /* Adjusted width to fit content */
+    min-width: 100px; 
     text-align: center;
   }
   
@@ -153,6 +156,7 @@
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 15px;
+    font-family: sans-serif;
   }
   
   .materials-list {
@@ -284,7 +288,7 @@
     .expense-category,
     .expense-date,
     .expense-amount {
-      min-width: 80px; /* Slightly smaller width for smaller screens */
+      min-width: 80px; 
     }
   }
   
@@ -294,7 +298,7 @@
     }
   
     .expense-card {
-      flex-wrap: wrap; /* Allow wrapping on very small screens */
+      flex-wrap: wrap; 
       gap: 10px;
     }
   
@@ -305,7 +309,7 @@
     .expense-category,
     .expense-date,
     .expense-amount {
-      min-width: 50px; /* Even smaller width for very small screens */
-      text-align: left; /* Align left for better readability */
+      min-width: 50px; 
+      text-align: left;
     }
   }
