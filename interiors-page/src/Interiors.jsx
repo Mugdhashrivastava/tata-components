@@ -57,18 +57,14 @@ const Interiors = () => {
           {/* Expenses List */}
           <div className="expenses-list">
             {expenses.map((expense, index) => (
-              <div className="expense-item" key={index}>
-                <div className="expense-info">
-                  <span className="expense-icon">{expense.icon}</span>
-                  <div>
-                    <p className="expense-name">{expense.name}</p>
-                    <p className="expense-category">Interiors</p>
-                  </div>
-                </div>
+              <div className="expense-card" key={index}>
+                <div className="expense-icon">{expense.icon}</div>
                 <div className="expense-details">
-                  <p className="expense-date">20th Dec 2024</p>
-                  <p className="expense-amount">{expense.amount}</p>
+                  <h3>{expense.name}</h3>
                 </div>
+                <p className="expense-category">Interiors</p>
+                <p className="expense-date">20th Dec 2024</p>
+                <p className="expense-amount">{expense.amount}</p>
               </div>
             ))}
           </div>
