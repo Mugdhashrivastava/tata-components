@@ -1,0 +1,52 @@
+.calendar-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .calendar-container h2 {
+    margin-bottom: 10px;
+  }
+  
+  .day-label {
+    font-size: 14px;
+    fill: #333;
+  }
+  
+  .day circle {
+    stroke: #ccc;
+    stroke-width: 1;
+    fill: #f0f0f0;
+    cursor: pointer;
+  }
+  
+  .day circle.expense {
+    fill: #d3e4ff; /* Light blue for expense-added dates */
+  }
+  
+  .day circle.selected {
+    fill: #4a90e2; /* Darker blue for selected date */
+  }
+  
+  .day text {
+    font-size: 12px;
+    fill: #333;
+  }
+  
+  .legend {
+    margin-top: 10px;
+  }
+  
+  .expense-legend::before {
+    content: '⬤ ';
+    color: #d3e4ff;
+  }
+  
+  .selected-legend::before {
+    content: '⬤ ';
+    color: #4a90e2;
+  }
+  
+  .expense-legend, .selected-legend {
+    margin: 0 10px;
+    font-size: 12px;
+  }
