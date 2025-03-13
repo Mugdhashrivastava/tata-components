@@ -99,51 +99,61 @@ const TimelineChart = () => {
     <div className="timeline-container">
       <h2 className="timeline-title">Timeline</h2>
 
-      {/* Year Navigation */}
-      <div className="year-selector">
-        <button onClick={handlePrevYear}>❮</button>
-        <span>{year}</span>
-        <button onClick={handleNextYear}>❯</button>
-      </div>
+      <div className="content-wrapper">
+        {/* Left Side: Chart and Related Content */}
+        <div className="chart-section">
+          {/* Year Navigation */}
+          <div className="year-selector">
+            <button onClick={handlePrevYear}>❮</button>
+            <span>{year}</span>
+            <button onClick={handleNextYear}>❯</button>
+          </div>
 
-      {/* Chart */}
-      <div ref={chartRef} className="chart-container"></div>
+          {/* Chart */}
+          <div ref={chartRef} className="chart-container"></div>
 
-      {/* Legend */}
-      <div className="legend">
-        <div>
-          <span className="legend-color spent"></span> Spent months
-        </div>
-        <div>
-          <span className="legend-color current"></span> Current month
-        </div>
-      </div>
-
-      {/* Highlighted Section for Most Spent Month */}
-      <div className="highlight-section">
-        <span className="highlight-icon">💡</span>
-        <span>You spent most of your budget in January</span>
-      </div>
-
-      {/* Monthly Details */}
-      {Object.keys(monthlyData).map((dataYear) => (
-        <div key={dataYear} className="year-section">
-          <h3 className="year-title">{dataYear}</h3>
-          {monthlyData[dataYear].map((monthData, index) => (
-            <div key={index} className="month-item">
-              <div className="month-details">
-                <span className="month-name">{monthData.month}</span>
-                <span className="month-transactions">{monthData.transactions}</span>
-              </div>
-              <div className="month-stats">
-                <span className="month-percentage">{monthData.percentage}</span>
-                <span className="month-amount">{monthData.amount}</span>
-              </div>
-              <button className="month-button">❯</button>
+          {/* Legend */}
+          <div className="legend">
+            <div>
+              <span className="legend-color spent"></span> Spent months
             </div>
-          ))}
+            <div>
+              <span className="legend-color current"></span> Current month
+            </div>
+          </div>
         </div>
-      ))}
+
+        {/* Right Side: Highlighted Section and Monthly Details */}
+        <div className="details-section">
+          {/* Highlighted Section for Most Spent Month */}
+          <div className="highlight-section">
+            <span className="highlight-icon">💡</span>
+            <span>You spent most of your budget in January</span>
+          </div>
+
+          {/* Monthly Details */}
+          <div className="monthly-details">
+            {Object.keys(monthlyData).map((dataYear) => (
+              <div key={dataYear} className="year-section">
+                <h3 className="year-title">{dataYear}</h3>
+                {monthlyData[dataYear].map((monthData, index) => (
+                  <div key={index} className="month-item">
+                    <div className="month-details">
+                      <span className="month-name">{monthData.month}</span>
+                      <span className="month-transactions">{monthData.transactions}</span>
+                    </div>
+                    <div className="month-stats">
+                      <span className="month-percentage">{monthData.percentage}</span>
+                      <span className="month-amount">{monthData.amount}</span>
+                    </div>
+                    <button className="month-button">❯</button>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
