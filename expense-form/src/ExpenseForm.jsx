@@ -8,18 +8,25 @@ const ExpenseForm = ({ onClose }) => {
   const [amount, setAmount] = useState("₹7,800");
   const [category, setCategory] = useState("Electric work");
   const [markAs, setMarkAs] = useState("Labour");
-  const [date, setDate] = useState(new Date("2024-12-31"));
+  const [date, setDate] = useState("2024-12-31");
   const [photos, setPhotos] = useState([
     "https://via.placeholder.com/60",
     "https://via.placeholder.com/60",
   ]);
+
+ 
+  const provider = {
+    name: "Mr. John Doe",
+    phone: "+91 9876543210",
+    location: "Delhi, India",
+  };
 
   const resetForm = () => {
     setExpenseName("");
     setAmount("");
     setCategory("");
     setMarkAs("");
-    setDate(new Date());
+    setDate("2024-12-31");
     setPhotos([]);
   };
 
@@ -66,10 +73,22 @@ const ExpenseForm = ({ onClose }) => {
 
       <div className="form-group">
         <label>Expense date</label>
-        <div className="date-display">
+        <div className="date-picker">
           <CalendarIcon size={16} />
-          {format(date, "dd MMM yyyy")}
+          <input
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
         </div>
+      </div>
+
+      {/* Service Provider Section */}
+      <div className="provider-card">
+        <h3>Service Provider</h3>
+        <p><strong>Name:</strong> {provider.name}</p>
+        <p><strong>Phone:</strong> {provider.phone}</p>
+        <p><strong>Location:</strong> {provider.location}</p>
       </div>
 
       <div className="form-group">
