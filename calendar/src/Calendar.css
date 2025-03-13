@@ -1,97 +1,104 @@
 .calendar-container {
-  text-align: center;
-  font-family: Arial, sans-serif;
   display: flex;
+  font-family: Arial, sans-serif;
   gap: 20px;
+  padding: 20px;
 }
 
 .timeline {
-  width: 300px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .timeline h2 {
-  margin: 0 0 10px;
+  margin: 0 0 20px;
   font-size: 20px;
+  font-weight: bold;
 }
 
 .month-selector {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.month-selector h3 {
-  margin: 0 10px;
-}
-
-.month-selector button {
-  background: none;
-  border: none;
-  font-size: 18px;
+.month-selector select {
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
   cursor: pointer;
 }
 
 .timeline-entry {
-  margin-bottom: 15px;
-  padding: 10px;
-  background: #f9f9f9;
-  border-radius: 5px;
-}
-
-.timeline-entry.selected {
-  background: #e6f0fa;
+  margin-bottom: 20px;
 }
 
 .timeline-entry h3 {
   margin: 0 0 10px;
   font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .timeline-entry h3 span {
-  float: right;
   font-weight: normal;
 }
 
 .timeline-item {
   display: flex;
   align-items: center;
+  padding: 10px;
+  background: #f5faff;
+  border-radius: 4px;
   margin-bottom: 5px;
 }
 
-.item-icon {
-  margin-right: 10px;
-  font-size: 16px;
+.item-details {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.timeline-item p {
+.item-details p {
   margin: 0;
   font-size: 14px;
 }
 
-.timeline-item small {
+.item-details small {
   color: #666;
   font-size: 12px;
 }
 
+.item-link {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+}
+
+.calendar-wrapper {
+  width: 300px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .calendar-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.calendar-header h2 {
-  margin: 0 20px;
-}
-
-.calendar-header button {
-  background: none;
-  border: none;
-  font-size: 18px;
+.calendar-header select {
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
   cursor: pointer;
 }
 
@@ -122,6 +129,8 @@
 
 .legend {
   margin-top: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .expense-legend::before {
@@ -136,6 +145,5 @@
 
 .expense-legend,
 .selected-legend {
-  margin: 0 10px;
   font-size: 12px;
 }

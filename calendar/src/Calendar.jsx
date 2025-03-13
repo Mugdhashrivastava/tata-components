@@ -4,25 +4,7 @@ import './Calendar.css';
 
 const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(2); // Default selected date (January 2nd)
-  const [timelineData] = useState({
-    '2025-01-02': {
-      total: 1747000,
-      items: [
-        { name: 'Lights from Dubai', category: 'Interiors', date: '20th Dec 2024', cost: 27800 },
-        { name: 'Kitchen furnishing...', category: 'Interiors', date: '20th Dec 2024', cost: 11800 },
-        { name: 'Bedroom painting...', category: 'Interiors', date: '20th Dec 2024', cost: 171214 },
-        { name: 'Structure', category: 'Interiors', date: '20th Dec 2024', cost: 27800 },
-        { name: 'Lights from Dubai', category: 'Interiors', date: '20th Dec 2024', cost: 27800 },
-      ],
-    },
-    '2025-01-03': {
-      total: 1747000,
-      items: [
-        { name: 'Lights from Dubai', category: 'Interiors', date: '20th Dec 2024', cost: 27800 },
-        { name: 'Kitchen furnishing...', category: 'Interiors', date: '20th Dec 2024', cost: 11800 },
-      ],
-    },
-  });
+  const [expenseDates] = useState([1, 4, 5, 11, 12, 19, 20]); // Example dates with expenses
   const svgRef = useRef();
 
   // Calendar data setup
@@ -33,12 +15,9 @@ const Calendar = () => {
   const startingDay = firstDayOfMonth.getDay(); // 0 (Sunday) to 6 (Saturday)
 
   // Generate an array of days, including empty slots for days before the 1st
-  const days = Array(startingDay)
-    .fill(null)
-    .concat(Array.from({ length: daysInMonth }, (_, i) => i + 1));
-
-  // Expense dates based on timeline data
-  const expenseDates = Object.keys(timelineData).map(date => parseInt(date.split('-')[2]));
+  const days = Array(startingDay).fill(null).concat(
+    Array.from({ length: daysInMonth }, (_, i) => i + 1)
+  );
 
   useEffect(() => {
     const svg = d3.select(svgRef.current);
@@ -100,41 +79,9 @@ const Calendar = () => {
       .text(d => (d < 10 ? `0${d}` : d));
   }, [selectedDate, expenseDates, days]);
 
-  // Get current date's data
-  const currentDate = `2025-01-${selectedDate < 10 ? '0' + selectedDate : selectedDate}`;
-  const dateData = timelineData[currentDate] || { total: 0, items: [] };
-
   return (
     <div className="calendar-container">
-      <div className="timeline">
-        <h2>Timeline</h2>
-        <div className="month-selector">
-          <button>👈</button>
-          <h3>January</h3>
-          <button>👉</button>
-        </div>
-        {Object.entries(timelineData).map(([date, data]) => {
-          const day = parseInt(date.split('-')[2]);
-          return (
-            <div key={date} className={`timeline-entry ${selectedDate === day ? 'selected' : ''}`}>
-              <h3>
-                {day}th January <span>€{data.total.toLocaleString()}</span>
-              </h3>
-              {data.items.map((item, index) => (
-                <div key={index} className="timeline-item">
-                  <span className="item-icon">💡</span>
-                  <div>
-                    <p>{item.name}</p>
-                    <small>
-                      {item.category} | {item.date} | €{item.cost.toLocaleString()}
-                    </small>
-                  </div>
-                </div>
-              ))}
-            </div>
-          );
-        })}
-      </div>
+      <h2>January 2025</h2>
       <svg ref={svgRef}></svg>
       <div className="legend">
         <span className="expense-legend">Expense added</span>
