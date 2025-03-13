@@ -4,12 +4,11 @@ import './Calendar.css';
 
 const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(2); // Default selected date (January 2nd)
-  const [expenseDates] = useState([1, 4, 5, 11, 12, 19, 20]); // Example dates with expenses
+  const [expenseDates] = useState([1, 4, 5, 11, 12, 19, 20, 27]); // Example dates with expenses
   const svgRef = useRef();
 
-  // Calendar data setup
   const year = 2025;
-  const month = 0; // January (0-based in JavaScript Date)
+  const month = 0; // January
   const firstDayOfMonth = new Date(year, month, 1);
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const startingDay = firstDayOfMonth.getDay(); // 0 (Sunday) to 6 (Saturday)
@@ -21,16 +20,14 @@ const Calendar = () => {
 
   useEffect(() => {
     const svg = d3.select(svgRef.current);
-    const width = 300;
-    const height = 300;
-    const cellSize = 40;
+    const width = 280;
+    const height = 320;
+    const cellSize = 36;
 
     svg.attr('width', width).attr('height', height);
+    svg.selectAll('*').remove(); // Clear previous render
 
-    // Clear previous render
-    svg.selectAll('*').remove();
-
-    // Add day labels (M, T, W, T, F, S, S)
+    // Day labels (M, T, W, T, F, S, S)
     const dayLabels = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
     svg
       .selectAll('.day-label')
@@ -40,9 +37,10 @@ const Calendar = () => {
       .attr('x', (d, i) => i * cellSize + cellSize / 2)
       .attr('y', 20)
       .attr('text-anchor', 'middle')
+      .attr('class', 'day-label')
       .text(d => d);
 
-    // Create the grid of days
+    // Create day cells
     const cells = svg
       .selectAll('.day')
       .data(days)
@@ -57,17 +55,17 @@ const Calendar = () => {
 
     // Add circles for each day
     cells
-      .filter(d => d !== null) // Only render circles for actual days
+      .filter(d => d !== null)
       .append('circle')
       .attr('cx', cellSize / 2)
       .attr('cy', cellSize / 2)
-      .attr('r', cellSize / 2 - 2)
+      .attr('r', cellSize / 2 - 4)
       .attr('class', d => {
         if (d === selectedDate) return 'selected';
         if (expenseDates.includes(d)) return 'expense';
-        return '';
+        return 'default';
       })
-      .on('click', (event, d) => setSelectedDate(d));
+      .on('click', (_, d) => setSelectedDate(d));
 
     // Add day numbers
     cells
@@ -76,6 +74,7 @@ const Calendar = () => {
       .attr('x', cellSize / 2)
       .attr('y', cellSize / 2 + 5)
       .attr('text-anchor', 'middle')
+      .attr('class', 'day-number')
       .text(d => (d < 10 ? `0${d}` : d));
   }, [selectedDate, expenseDates, days]);
 

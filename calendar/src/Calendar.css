@@ -1,110 +1,22 @@
 .calendar-container {
-  display: flex;
+  width: 280px;
+  text-align: center;
   font-family: Arial, sans-serif;
-  gap: 20px;
-  padding: 20px;
-}
-
-.timeline {
-  flex: 1;
-  padding: 20px;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.timeline h2 {
-  margin: 0 0 20px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.month-selector {
-  margin-bottom: 20px;
-}
-
-.month-selector select {
-  padding: 5px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: #fff;
-  cursor: pointer;
-}
-
-.timeline-entry {
-  margin-bottom: 20px;
-}
-
-.timeline-entry h3 {
-  margin: 0 0 10px;
-  font-size: 16px;
-  font-weight: bold;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.timeline-entry h3 span {
-  font-weight: normal;
-}
-
-.timeline-item {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  background: #f5faff;
-  border-radius: 4px;
-  margin-bottom: 5px;
-}
-
-.item-details {
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.item-details p {
-  margin: 0;
-  font-size: 14px;
-}
-
-.item-details small {
-  color: #666;
-  font-size: 12px;
-}
-
-.item-link {
-  text-decoration: none;
-  color: #000;
-  font-size: 14px;
-}
-
-.calendar-wrapper {
-  width: 300px;
   padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.calendar-header {
-  margin-bottom: 20px;
-}
-
-.calendar-header select {
-  padding: 5px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: #fff;
-  cursor: pointer;
+h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .day-label {
   font-size: 14px;
-  fill: #333;
+  fill: #555;
+  font-weight: bold;
 }
 
 .day circle {
@@ -120,17 +32,22 @@
 
 .day circle.selected {
   fill: #4a90e2;
+  stroke: #2b6cb0;
+  stroke-width: 2;
 }
 
-.day text {
+.day-number {
   font-size: 12px;
   fill: #333;
+  font-weight: bold;
 }
 
 .legend {
   margin-top: 10px;
   display: flex;
+  justify-content: center;
   gap: 10px;
+  font-size: 12px;
 }
 
 .expense-legend::before {
@@ -141,9 +58,4 @@
 .selected-legend::before {
   content: '⬤ ';
   color: #4a90e2;
-}
-
-.expense-legend,
-.selected-legend {
-  font-size: 12px;
 }
