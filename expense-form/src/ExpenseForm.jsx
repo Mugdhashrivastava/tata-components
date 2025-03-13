@@ -4,84 +4,88 @@ import { format } from "date-fns";
 import { CalendarIcon, Upload } from "lucide-react";
 
 const ExpenseForm = () => {
-  const [expense, setExpense] = useState({
-    name: "Light Bulbs",
-    amount: "₹7,800",
-    category: "Electric work",
-    markAs: "Labour",
-    provider: {
-      name: "Naresh Bhai",
-      address: "Shops in Location, 414601",
-      phone: "9822091859",
-    },
-    date: new Date("2024-12-31"),
-    photos: ["/images/light1.jpg", "/images/light2.jpg"],
-  });
+  const [expenseName, setExpenseName] = useState("Light Bulbs");
+  const [amount, setAmount] = useState("₹7,800");
+  const [category, setCategory] = useState("Electric work");
+  const [markAs, setMarkAs] = useState("Labour");
+  const [date, setDate] = useState(new Date("2024-12-31"));
+  const [photos, setPhotos] = useState([
+    "https://via.placeholder.com/60",
+    "https://via.placeholder.com/60",
+  ]);
 
-  const handleImageUpload = (event) => {
-    const files = event.target.files;
-    const newPhotos = [...expense.photos, URL.createObjectURL(files[0])];
-    setExpense({ ...expense, photos: newPhotos });
+  const resetForm = () => {
+    setExpenseName("");
+    setAmount("");
+    setCategory("");
+    setMarkAs("");
+    setDate(new Date());
+    setPhotos([]);
   };
 
   return (
     <div className="expense-form-container">
-      <h2 className="header">Expense Details</h2>
+      <div className="header">
+        <span>Expense Details</span>
+        <span className="delete-expense" onClick={resetForm}>Delete expense</span>
+      </div>
+
       <div className="form-group">
         <label>Expense name</label>
-        <input type="text" value={expense.name} readOnly />
+        <input value={expenseName} onChange={(e) => setExpenseName(e.target.value)} />
       </div>
+
       <div className="form-group">
         <label>Amount</label>
-        <input type="text" value={expense.amount} readOnly />
+        <input value={amount} onChange={(e) => setAmount(e.target.value)} />
       </div>
+
       <div className="form-group">
         <label>Category</label>
-        <select>
+        <select value={category} onChange={(e) => setCategory(e.target.value)}>
           <option>Electric work</option>
           <option>Plumbing</option>
+          <option>Carpentry</option>
         </select>
       </div>
+
       <div className="form-group">
         <label>Mark as</label>
         <div className="button-group">
-          {['Material', 'Labour', 'Other'].map((type) => (
+          {["Material", "Labour", "Other"].map((item) => (
             <button
-              key={type}
-              className={expense.markAs === type ? "selected" : ""}
+              key={item}
+              className={markAs === item ? "selected" : ""}
+              onClick={() => setMarkAs(item)}
             >
-              {type}
+              {item}
             </button>
           ))}
         </div>
       </div>
-      <div className="provider-card">
-        <h4>Service Provider</h4>
-        <p>{expense.provider.name}</p>
-        <p>{expense.provider.address}</p>
-        <p className="phone">{expense.provider.phone}</p>
-      </div>
+
       <div className="form-group">
-        <label>Expense Date</label>
+        <label>Expense date</label>
         <div className="date-display">
-          <CalendarIcon className="icon" />
-          <span>{format(expense.date, "dd MMM yyyy")}</span>
+          <CalendarIcon size={16} />
+          {format(date, "dd MMM yyyy")}
         </div>
       </div>
+
       <div className="form-group">
-        <label>Reference Photos</label>
+        <label>Reference photo</label>
         <div className="photo-gallery">
-          {expense.photos.map((photo, index) => (
-            <img key={index} src={photo} alt="" className="photo" />
+          {photos.map((photo, index) => (
+            <img key={index} src={photo} alt="Preview" className="photo" />
           ))}
-          <label className="upload-btn">
-            <Upload className="icon" />
-            <input type="file" className="hidden" onChange={handleImageUpload} />
-          </label>
+          <div className="upload-btn">
+            <Upload size={20} />
+          </div>
         </div>
       </div>
+
       <div className="action-buttons">
-        <button className="cancel">Cancel</button>
+        <button className="cancel" onClick={resetForm}>Cancel</button>
         <button className="save">Save</button>
       </div>
     </div>
