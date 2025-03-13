@@ -1,22 +1,49 @@
 .calendar-container {
-  width: 280px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: Arial, sans-serif;
+  padding: 20px;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+}
+.year-slider {
+  display: none !important; 
 }
 
-h2 {
+
+.year-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  background-color: #f0f2f5;
+  padding: 10px;
+  border-radius: 20px;
+  width: 60%;
+  margin-inline: auto;
+}
+
+.year-selector button {
+  background: none;
+  border: none;
   font-size: 18px;
-  margin-bottom: 10px;
+  cursor: pointer;
+  color: #333;
 }
 
+.year-selector span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #003087;
+  margin: 0 15px;
+}
+
+/* Calendar grid */
 .day-label {
   font-size: 14px;
-  fill: #555;
-  font-weight: bold;
+  fill: #333;
 }
 
 .day circle {
@@ -32,30 +59,32 @@ h2 {
 
 .day circle.selected {
   fill: #4a90e2;
-  stroke: #2b6cb0;
-  stroke-width: 2;
 }
 
-.day-number {
+.day text {
   font-size: 12px;
   fill: #333;
-  font-weight: bold;
 }
 
+/* Legend */
 .legend {
   margin-top: 10px;
   display: flex;
-  justify-content: center;
   gap: 10px;
-  font-size: 12px;
 }
 
 .expense-legend::before {
-  content: '⬤ ';
+  content: "⬤ ";
   color: #d3e4ff;
 }
 
 .selected-legend::before {
-  content: '⬤ ';
+  content: "⬤ ";
   color: #4a90e2;
 }
+
+.expense-legend,
+.selected-legend {
+  font-size: 12px;
+}
+
