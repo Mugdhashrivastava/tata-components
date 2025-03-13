@@ -1,0 +1,124 @@
+.dashboard {
+    display: flex;
+    padding: 20px;
+    font-family: "Arial", sans-serif;
+    background: #f9fafb;
+  }
+  
+  .expenses-section {
+    flex: 2;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .total-expenses {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .total-expenses h3 {
+    color: #333;
+  }
+  
+  .add-expense-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .add-expense-btn svg {
+    margin-right: 5px;
+  }
+  
+  .expenses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .expense-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f5f5f5;
+    padding: 12px;
+    border-radius: 8px;
+  }
+  
+  .icon {
+    font-size: 20px;
+  }
+  
+  .expense-details h4 {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .expense-amount {
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .sidebar {
+    flex: 1;
+    margin-left: 20px;
+  }
+  
+  .materials-section, .service-providers {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .materials-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .material-item {
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1 1 calc(33.33% - 10px);
+  }
+  
+  .provider-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f5f5f5;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  
+  .rating {
+    background: #4caf50;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  
+  .send-enquiry-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
