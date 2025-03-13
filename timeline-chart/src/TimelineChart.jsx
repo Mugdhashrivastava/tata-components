@@ -9,7 +9,8 @@ const TimelineChart = () => {
   const handlePrevYear = () => setYear(year - 1);
   const handleNextYear = () => setYear(year + 1);
 
-  const data = [
+  // Sample data for the chart (same as before)
+  const chartData = [
     { label: "Jan", value: 80, color: "#6A95FF" },
     { label: "Feb", value: 40, color: "#6A95FF" },
     { label: "Mar", value: 60, color: "#6A95FF" },
@@ -21,8 +22,27 @@ const TimelineChart = () => {
     { label: "Sep", value: 80, color: "#6A95FF" },
     { label: "Oct", value: 85, color: "#6A95FF" },
     { label: "Nov", value: 75, color: "#6A95FF" },
-    { label: "Dec", value: 65, color: "#003087" }, 
+    { label: "Dec", value: 65, color: "#003087" },
   ];
+
+  // Sample data for the monthly details (based on the image)
+  const monthlyData = {
+    2025: [
+      { month: "January", transactions: "08 transactions", percentage: "12%", amount: "₹27,800" },
+    ],
+    2024: [
+      { month: "December", transactions: "08 transactions", percentage: "12%", amount: "₹27,800" },
+      { month: "November", transactions: "08 transactions", percentage: "12%", amount: "₹27,800" },
+      { month: "October", transactions: "08 transactions", percentage: "12%", amount: "₹27,800" },
+      { month: "August", transactions: "08 transactions", percentage: "12%", amount: "₹27,800" },
+      { month: "June", transactions: "08 transactions", percentage: "12%", amount: "₹27,800" },
+    ],
+    2023: [
+      { month: "December", transactions: "08 transactions", percentage: "12%", amount: "₹27,800" },
+      { month: "November", transactions: "08 transactions", percentage: "12%", amount: "₹27,800" },
+      { month: "October", transactions: "08 transactions", percentage: "12%", amount: "₹27,800" },
+    ],
+  };
 
   useEffect(() => {
     drawChart();
@@ -43,18 +63,18 @@ const TimelineChart = () => {
 
     const xScale = d3
       .scaleBand()
-      .domain(data.map((d) => d.label))
+      .domain(chartData.map((d) => d.label))
       .range([margin.left, width - margin.right])
       .padding(0.2);
 
     const yScale = d3
       .scaleLinear()
-      .domain([0, d3.max(data, (d) => d.value) + 20])
+      .domain([0, d3.max(chartData, (d) => d.value) + 20])
       .range([height - margin.bottom, margin.top]);
 
     svg
       .selectAll(".bar")
-      .data(data)
+      .data(chartData)
       .enter()
       .append("rect")
       .attr("class", "bar")
@@ -98,12 +118,34 @@ const TimelineChart = () => {
           <span className="legend-color current"></span> Current month
         </div>
       </div>
+
+      {/* Highlighted Section for Most Spent Month */}
+      <div className="highlight-section">
+        <span className="highlight-icon">💡</span>
+        <span>You spent most of your budget in January</span>
+      </div>
+
+      {/* Monthly Details */}
+      {Object.keys(monthlyData).map((dataYear) => (
+        <div key={dataYear} className="year-section">
+          <h3 className="year-title">{dataYear}</h3>
+          {monthlyData[dataYear].map((monthData, index) => (
+            <div key={index} className="month-item">
+              <div className="month-details">
+                <span className="month-name">{monthData.month}</span>
+                <span className="month-transactions">{monthData.transactions}</span>
+              </div>
+              <div className="month-stats">
+                <span className="month-percentage">{monthData.percentage}</span>
+                <span className="month-amount">{monthData.amount}</span>
+              </div>
+              <button className="month-button">❯</button>
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 };
 
 export default TimelineChart;
-
-
-
-
