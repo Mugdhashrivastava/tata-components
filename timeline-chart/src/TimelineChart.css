@@ -1,6 +1,6 @@
 .timeline-container {
-  width: 100%; 
- 
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   background-color: #fff;
   padding: 20px;
@@ -15,7 +15,6 @@
   text-align: left;
 }
 
-/* Flexbox layout for side-by-side arrangement */
 .content-wrapper {
   display: flex;
   justify-content: space-between;
@@ -23,10 +22,9 @@
   width: 100%;
 }
 
-/* Left Side: Chart Section */
 .chart-section {
   flex: 1;
-  max-width: 350px; /* Fixed width for chart to maintain its aspect ratio */
+  max-width: 350px;
 }
 
 .year-selector {
@@ -86,11 +84,9 @@
   background-color: #003087;
 }
 
-/* Right Side: Details Section */
 .details-section {
   flex: 1;
-  max-width: 100%; /* Allow it to expand or shrink */
-  overflow-y: auto;
+  max-width: 100%;
 }
 
 .highlight-section {
@@ -107,7 +103,6 @@
   margin-right: 5px;
 }
 
-/* Year and Month Sections */
 .year-section {
   margin-bottom: 20px;
 }
@@ -129,8 +124,14 @@
 
 .month-details {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.month-name-transactions {
+  display: flex;
   flex-direction: column;
-  text-align: left;
 }
 
 .month-name {
@@ -145,8 +146,9 @@
 
 .month-stats {
   display: flex;
-  flex-direction: column;
-  text-align: right;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100px;
 }
 
 .month-percentage {
@@ -166,23 +168,16 @@
   cursor: pointer;
 }
 
-/* Optional: Add max-height and scroll for monthly details */
-.monthly-details {
-  max-height: 400px; /* Adjust based on your needs */
-  overflow-y: auto;
-}
-
-/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .content-wrapper {
-    flex-direction: column; /* Stack sections vertically on small screens */
+    flex-direction: column;
   }
 
   .chart-section {
-    max-width: 100%; /* Full width on mobile */
+    max-width: 100%;
   }
 
   .details-section {
-    max-width: 100%; /* Full width on mobile */
+    max-width: 100%;
   }
 }
