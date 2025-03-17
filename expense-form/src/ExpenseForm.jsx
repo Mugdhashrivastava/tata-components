@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
-import { format } from "date-fns";
+
 import { CalendarIcon, Upload } from "lucide-react";
 
 const ExpenseForm = ({ onClose }) => {
