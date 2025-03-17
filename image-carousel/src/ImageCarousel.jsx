@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { X } from "lucide-react";
 import Slider from "react-slick";
+import { X } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./ImageCarousel.css";
@@ -12,7 +12,7 @@ import img3 from "./assets/images/img.jpg";
 const images = [img1, img2, img3];
 
 export default function ImageCarousel({ isOpen, setIsOpen }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  if (!isOpen) return null;
 
   const settings = {
     dots: true,
@@ -20,20 +20,8 @@ export default function ImageCarousel({ isOpen, setIsOpen }) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    beforeChange: (_, newIndex) => setCurrentIndex(newIndex),
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    arrows: true,
   };
-
-  function SampleNextArrow(props) {
-    return <div className="slick-next" onClick={props.onClick}></div>;
-  }
-
-  function SamplePrevArrow(props) {
-    return <div className="slick-prev" onClick={props.onClick}></div>;
-  }
-
-  if (!isOpen) return null;
 
   return (
     <div className="modal-overlay">
@@ -42,24 +30,14 @@ export default function ImageCarousel({ isOpen, setIsOpen }) {
           <X size={20} />
         </button>
         <h2 className="text-lg font-semibold text-gray-800 mb-3">Reference photos/bill</h2>
-        <Slider {...settings} className="image-container">
+
+        <Slider {...settings} className="image-slider">
           {images.map((img, index) => (
-            <div key={index}>
+            <div key={index} className="slide">
               <img src={img} alt="Reference" className="carousel-image" />
             </div>
           ))}
         </Slider>
-        <div className="thumbnail-container">
-          {images.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt="Thumbnail"
-              className={`thumbnail ${index === currentIndex ? "active" : ""}`}
-              onClick={() => setCurrentIndex(index)}
-            />
-          ))}
-        </div>
       </div>
     </div>
   );
