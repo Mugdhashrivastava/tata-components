@@ -46,21 +46,32 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: white;
+  background-color: #ffffff;
   border-radius: 50%;
-  padding: 10px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  font-size: 20px;
+  width: 40px;
+  height: 40px;
   border: none;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-50%) scale(1.1);
 }
 
 .prev-btn {
-  left: 10px;
+  left: -13px; 
 }
 
 .next-btn {
-  right: 10px;
+  right: -13px; 
 }
 
 .thumbnail-container {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import "./ImageCarousel.css";
 
 import img1 from "./assets/images/img.jpg";
@@ -27,12 +27,22 @@ export default function ImageCarousel({ isOpen, setIsOpen }) {
         <button onClick={() => setIsOpen(false)} className="close-btn">
           <X size={20} />
         </button>
-        <h2 className="text-lg font-semibold text-gray-800 mb-3">Reference photos/bill</h2>
+        <h2 className="text-lg font-semibold text-gray-800 mb-3">
+          Reference photos/bill
+        </h2>
 
         <div className="image-container">
-          <button className="prev-btn" onClick={prevSlide}>‹</button>
-          <img src={images[currentIndex]} alt="Reference" className="carousel-image" />
-          <button className="next-btn" onClick={nextSlide}>›</button>
+          <button className="prev-btn" onClick={prevSlide}>
+            <ChevronLeft size={20} />
+          </button>
+          <img
+            src={images[currentIndex]}
+            alt="Reference"
+            className="carousel-image"
+          />
+          <button className="next-btn" onClick={nextSlide}>
+            <ChevronRight size={20} />
+          </button>
         </div>
 
         <div className="thumbnail-container">
