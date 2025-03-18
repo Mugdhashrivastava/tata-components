@@ -3,12 +3,12 @@ import * as d3 from "d3";
 import "./Calendar.css";
 
 const Calendar = () => {
-  const [selectedDate, setSelectedDate] = useState(2); // Default selected date
-  const [year, setYear] = useState(2025); // Dynamic year
-  const [expenseDates] = useState([1, 4, 5, 11, 12, 19, 20, 27, 31]); // Expense dates
+  const [selectedDate, setSelectedDate] = useState(2);
+  const [year, setYear] = useState(2025);
+  const [expenseDates] = useState([1, 4, 5, 11, 12, 19, 20, 27, 31]);
   const svgRef = useRef();
 
-  const month = 0; // January (0-based)
+  const month = 0;
   const firstDayOfMonth = new Date(year, month, 1);
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const startingDay = firstDayOfMonth.getDay();
@@ -19,14 +19,17 @@ const Calendar = () => {
 
   useEffect(() => {
     const svg = d3.select(svgRef.current);
-    const width = 280;
-    const height = 280;
-    const cellSize = 35;
+    
+    // Dynamic sizing based on container width
+    const containerWidth = Math.min(window.innerWidth * 0.85, 280); // Slightly smaller for better fit
+    const cellSize = containerWidth / 7; // 7 columns, slightly larger cells
+    const width = containerWidth;
+    const height = cellSize * 7; // Adjust height based on rows
 
     svg.attr("width", width).attr("height", height);
-    svg.selectAll("*").remove(); // Clear previous render
+    svg.selectAll("*").remove();
 
-    // Day Labels (Mon-Sun)
+    // Day Labels
     const dayLabels = ["M", "T", "W", "T", "F", "S", "S"];
     svg
       .selectAll(".day-label")
@@ -34,7 +37,7 @@ const Calendar = () => {
       .enter()
       .append("text")
       .attr("x", (d, i) => i * cellSize + cellSize / 2)
-      .attr("y", 20)
+      .attr("y", cellSize / 2)
       .attr("text-anchor", "middle")
       .attr("class", "day-label")
       .text((d) => d);
@@ -49,7 +52,7 @@ const Calendar = () => {
       .attr("transform", (d, i) => {
         const row = Math.floor(i / 7);
         const col = i % 7;
-        return `translate(${col * cellSize}, ${row * cellSize + 40})`;
+        return `translate(${col * cellSize}, ${row * cellSize + cellSize})`;
       });
 
     // Circles for Days
@@ -58,7 +61,7 @@ const Calendar = () => {
       .append("circle")
       .attr("cx", cellSize / 2)
       .attr("cy", cellSize / 2)
-      .attr("r", cellSize / 2 - 4)
+      .attr("r", cellSize / 2 - 3) // Slightly larger circles
       .attr("class", (d) =>
         d === selectedDate
           ? "selected"
@@ -84,16 +87,12 @@ const Calendar = () => {
 
   return (
     <div className="calendar-container">
-      {/* Replaced year-slider with year-selector using arrows */}
       <div className="year-selector">
         <button onClick={handlePrevYear}>❮</button>
         <span>{year}</span>
         <button onClick={handleNextYear}>❯</button>
       </div>
-
       <svg ref={svgRef}></svg>
-
-      {/* Legend */}
       <div className="legend">
         <span className="expense-legend">Expense added</span>
         <span className="selected-legend">Selected</span>
