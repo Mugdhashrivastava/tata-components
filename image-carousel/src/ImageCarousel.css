@@ -27,8 +27,11 @@
   font-size: 18px;
 }
 
-.image-slider {
-  width: 100%;
+.image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel-image {
@@ -36,6 +39,28 @@
   border-radius: 8px;
   max-height: 350px;
   object-fit: cover;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-size: 20px;
+  border: none;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
 }
 
 .thumbnail-container {
@@ -46,6 +71,7 @@
 }
 
 .thumbnail {
+  width: 48px;
   height: 48px;
   border-radius: 4px;
   cursor: pointer;
