@@ -4,7 +4,7 @@ import ExpenseList from "./ExpenseList";
 import "./App.css"; 
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState("calendar"); // Default tab is Calendar
+  const [activeTab, setActiveTab] = useState("calendar"); 
 
   return (
     <div className="app-container">
@@ -24,13 +24,13 @@ const App = () => {
         </button>
       </div>
 
-      {/* Component display */}
+      
       <div className="component-container">
-        {/* Mobile view: Show one component based on active tab */}
+        {/* Mobile vieww */}
         <div className="mobile-view">
-          {activeTab === "calendar" ? <Calendar /> : <ExpenseList />}
+          {activeTab === "calendar" ? <Calendar />  : <ExpenseList />}
         </div>
-        {/* Desktop view: Show both components */}
+        {/* Desktop view */}
         <div className="desktop-view">
           <Calendar />
           <ExpenseList />
