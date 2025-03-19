@@ -1,0 +1,84 @@
+/* App.css */
+.app-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  
+  /* Hide tab navigation by default (desktop view) */
+  .tab-nav {
+    display: none;
+  }
+  
+  /* Hide desktop view in mobile, show mobile view */
+  .desktop-view {
+    display: none;
+  }
+  
+  .mobile-view {
+    display: block;
+  }
+  
+  /* Mobile view: Show tabs and one component at a time */
+  @media (max-width: 768px) {
+    .tab-nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border-bottom: 1px solid #e0e0e0;
+    }
+  
+    .tab {
+      padding: 8px 16px;
+      border: none;
+      background-color: #ddd;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+    }
+  
+    .tab-active {
+      padding: 8px 16px;
+      border: none;
+      background-color: #003087;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  
+    .desktop-view {
+      display: none;
+    }
+  
+    .mobile-view {
+      display: block;
+    }
+  
+    .component-container {
+      padding: 10px;
+    }
+  }
+  
+  /* Desktop view: Show both components side by side */
+  @media (min-width: 769px) {
+    .desktop-view {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+    }
+  
+    .mobile-view {
+      display: none;
+    }
+  
+    .tab-nav {
+      display: none;
+    }
+  }
