@@ -13,13 +13,13 @@
   
   .expense-date {
     font-weight: bold;
-    font-size: 16px;
-    color: #003087;
+    font-size: small;
+    color: gray;
   }
   
-  .expense-date span {
-    margin-left: 8px;
-    color: #000;
+  .expense-subdate{
+    font-weight:bold;
+    color: #003087;
   }
   
   .expense-total {
@@ -29,28 +29,51 @@
     color: #000;
     margin-bottom: 10px;
   }
+
   
+
   .expense-item {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     background: #f8f9fb;
     padding: 12px;
     border-radius: 6px;
     margin-bottom: 10px;
+    gap: 10px;
+    flex-wrap: wrap; 
   }
   
   .expense-item-title {
     font-weight: 600;
     color: #333;
+    flex: 2;  
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   
   .expense-item-details {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* stack category and date */
     font-size: 12px;
     color: #666;
-    margin-top: 5px;
+    flex: 2;  /* Balanced space */
+    min-width: 0;
   }
+  
+  .expense-item-amount {
+    font-weight: 600;
+    color: #333;
+    flex: 1;  /* Amount takes less space */
+    text-align: right;
+    min-width: 80px;  /* Prevent breaking */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
   
   /* Mobile View Styling */
   @media screen and (max-width: 600px) {

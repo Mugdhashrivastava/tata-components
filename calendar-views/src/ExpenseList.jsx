@@ -30,17 +30,23 @@ const ExpenseList = () => {
     <div className="expense-list-container">
       {expenses.map((day, index) => (
         <div key={index} className="expense-day">
-          <div className="expense-date">{day.year} <span>{day.date}</span></div>
+          <div className="expense-date">{day.year} </div>
+          <div className="expense-subdate">{day.date}</div>
           <div className="expense-total">{day.total}</div>
           {day.items.map((item, idx) => (
-            <div key={idx} className="expense-item">
-              <div className="expense-item-title">{item.title}</div>
-              <div className="expense-item-details">
-                <span>{item.category}</span>
-                <span>{item.date}</span>
-                <span>{item.amount}</span>
-              </div>
-            </div>
+          
+
+  <div key={idx} className="expense-item">
+  <div className="expense-item-title">{item.title}</div>
+  <div className="expense-item-details">
+    {item.category}
+  </div>
+  <div className="expense-item-details">
+    {item.date}
+  </div>
+  <div className="expense-item-amount">{item.amount}</div>
+</div>
+
           ))}
         </div>
       ))}
