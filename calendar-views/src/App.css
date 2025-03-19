@@ -1,4 +1,4 @@
-
+/* App.css */
 .app-container {
     width: 100%;
     max-width: 1200px;
@@ -20,7 +20,7 @@
     display: block;
   }
   
-  /* Mobile view: Show tabs and one component at a time */
+  /* Mobile view*/
   @media (max-width: 768px) {
     .tab-nav {
       display: flex;
@@ -58,7 +58,9 @@
     }
   
     .mobile-view {
-      display: block;
+      display: flex;
+      flex-direction: column; 
+      gap: 20px; 
     }
   
     .component-container {
@@ -66,7 +68,7 @@
     }
   }
   
-  /* Desktop vieww */
+  /* Desktop view*/
   @media (min-width: 769px) {
     .desktop-view {
       display: flex;
