@@ -1,10 +1,25 @@
-const path = require('path'); // Required for handling file paths
+// /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//  ~ Copyright 2020 Adobe Systems Incorporated
+//  ~
+//  ~ Licensed under the Apache License, Version 2.0 (the "License");
+//  ~ you may not use this file except in compliance with the License.
+//  ~ You may obtain a copy of the License at
+//  ~
+//  ~     http://www.apache.org/licenses/LICENSE-2.0
+//  ~
+//  ~ Unless required by applicable law or agreed to in writing, software
+//  ~ distributed under the License is distributed on an "AS IS" BASIS,
+//  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  ~ See the License for the specific language governing permissions and
+//  ~ limitations under the License.
+//  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+const path = require('path');
 
 const BUILD_DIR = path.join(__dirname, 'dist');
-const CLIENTLIB_DIR = path.join(
+const CLIENTLIB_DIR = path.join( 
   __dirname,
   '..',
-  'ui.apps', 
+  'ui.apps',
   'src',
   'main',
   'content',
@@ -21,7 +36,6 @@ const libsBaseConfig = {
   jsProcessor: ['default:none', 'min:none']
 };
 
-// Config for `aem-clientlib-generator`
 module.exports = {
   context: BUILD_DIR,
   clientLibRoot: CLIENTLIB_DIR,
@@ -30,17 +44,10 @@ module.exports = {
       ...libsBaseConfig,
       name: 'clientlib-dependencies',
       categories: ['aashiyana-redesign.dependencies'],
+      dependencies: ['cq.jquery'],
       assets: {
-        js: {
-          cwd: 'clientlib-dependencies',
-          files: ['**/*.js'],
-          flatten: false
-        },
-        css: {
-          cwd: 'clientlib-dependencies',
-          files: ['**/*.css'],
-          flatten: false
-        }
+        js: { cwd: 'clientlib-dependencies', files: ['**/*.js'], flatten: false },
+        css: { cwd: 'clientlib-dependencies', files: ['**/*.css'], flatten: false }
       }
     },
     {
@@ -49,16 +56,8 @@ module.exports = {
       categories: ['aashiyana-redesign.site'],
       dependencies: ['aashiyana-redesign.dependencies'],
       assets: {
-        js: {
-          cwd: 'clientlib-site',
-          files: ['**/*.js'],
-          flatten: false
-        },
-        css: {
-          cwd: 'clientlib-site',
-          files: ['**/*.css'],
-          flatten: false
-        },
+        js: { cwd: 'clientlib-site', files: ['**/*.js'], flatten: false },
+        css: { cwd: 'clientlib-site', files: ['**/*.css'], flatten: false },
         resources: {
           cwd: 'clientlib-site',
           files: ['**/*.*'],
@@ -69,27 +68,17 @@ module.exports = {
     },
     {
       ...libsBaseConfig,
-      name: 'clientlib-custom', // Added a new clientlib for custom scripts and styles
-      categories: ['aashiyana-redesign.custom'],
-      dependencies: ['aashiyana-redesign.site'],
+      name: 'clientlib-expense',
+      categories: ['aashiyana-redesign.expense'],  
+      dependencies: ['aashiyana-redesign.dependencies'],
       assets: {
-        js: {
-          cwd: 'clientlib-custom',
-          files: ['**/*.js'],
-          flatten: false
-        },
-        css: {
-          cwd: 'clientlib-custom',
-          files: ['**/*.css'],
-          flatten: false
-        },
-        resources: {
-          cwd: 'clientlib-custom',
-          files: ['**/*.*'],
-          flatten: false,
-          ignore: ['**/*.js', '**/*.css']
-        }
+        js: { cwd: 'clientlib-expense', files: ['**/*.js'], flatten: false },
+        css: { cwd: 'clientlib-expense', files: ['**/*.css'], flatten: false }
       }
     }
   ]
 };
+
+
+
+
